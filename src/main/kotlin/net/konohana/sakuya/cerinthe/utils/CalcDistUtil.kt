@@ -1,62 +1,72 @@
 package net.konohana.sakuya.cerinthe.utils
 
 import net.konohana.sakuya.cerinthe.constant.FareDistCalcRuleConst
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternC1
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternC2
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternC3
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternC4
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD1
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD10
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD11
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD12
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD13
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD14
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD15
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD16
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD17
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD18
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD19
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD2
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD20
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD21
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD22
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD3
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD4
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD5
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD6
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD7
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD8
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternD9
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE1
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE10
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE11
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE12
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE13
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE14
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE15
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE16
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE17
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE18
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE19
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE2
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE20
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE21
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE22
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE23
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE24
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE25
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE26
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE27
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE28
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE29
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE3
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE30
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE4
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE5
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE6
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE7
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE8
-import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.faredistCalcPatternE9
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatternC1
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatternC2
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatternC3
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatternC4
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD1
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD10
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD11
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD12
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD13
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD14
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD15
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD16
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD17
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD18
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD19
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD2
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD20
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD21
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD22
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD3
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD4
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD5
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD6
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD7
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD8
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD9
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE1
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE10
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE11
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE12
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE13
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE14
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE15
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE16
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE17
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE18
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE19
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE2
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE20
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE21
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE22
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE23
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE24
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE25
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE26
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE27
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE28
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE29
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE3
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE30
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE31
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE32
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE33
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE34
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE35
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE36
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE37
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE38
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE39
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE4
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE40
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE5
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE6
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE7
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE8
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE9
 import net.konohana.sakuya.cerinthe.utils.calcdist.faredistCalcPatternA
 
 /**
@@ -125,6 +135,16 @@ fun calcDist(calcPattern: String, fromDist: Double, toDist: Double): Pair<Double
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E28 -> faredistCalcPatternE28(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E29 -> faredistCalcPatternE29(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E30 -> faredistCalcPatternE30(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E31 -> faredistCalcPatternE31(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E32 -> faredistCalcPatternE32(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E33 -> faredistCalcPatternE33(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E34 -> faredistCalcPatternE34(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E35 -> faredistCalcPatternE35(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E36 -> faredistCalcPatternE36(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E37 -> faredistCalcPatternE37(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E38 -> faredistCalcPatternE38(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E39 -> faredistCalcPatternE39(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E40 -> faredistCalcPatternE40(fromDist, toDist)
         else -> Pair(0.0, 0)
     }
     return dist
