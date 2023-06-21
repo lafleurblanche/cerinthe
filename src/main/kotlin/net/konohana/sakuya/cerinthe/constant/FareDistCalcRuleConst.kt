@@ -20,6 +20,8 @@ class FareDistCalcRuleConst {
         const val FAREDIST_CALCRULE_PATTERN_C4 = "C4"
         /** 経路情報計算ルール(中間駅(筮谷)) */
         const val FAREDIST_CALCRULE_PATTERN_C5 = "C5"
+        /** 経路情報計算ルール(中間駅(筁谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_C6 = "C6"
         /** 経路情報計算ルール(中間経路(苆谷～茄谷)) */
         const val FAREDIST_CALCRULE_PATTERN_D1 = "D1"
         /** 経路情報計算ルール(中間経路(苆谷～笥谷)) */
@@ -70,6 +72,14 @@ class FareDistCalcRuleConst {
         const val FAREDIST_CALCRULE_PATTERN_D24 = "D24"
         /** 経路情報計算ルール(中間経路(筮谷～瑞堂)) */
         const val FAREDIST_CALCRULE_PATTERN_D25 = "D25"
+        /** 経路情報計算ルール(中間経路(筁谷～筥谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_D26 = "D26"
+        /** 経路情報計算ルール(中間経路(筁谷～笒谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_D27 = "D27"
+        /** 経路情報計算ルール(中間経路(筁谷～箬谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_D28 = "D28"
+        /** 経路情報計算ルール(中間経路(筁谷～卯塚)) */
+        const val FAREDIST_CALCRULE_PATTERN_D29 = "D29"
         /** 経路情報計算ルール(中間経路(苆谷～卯塚, 卯塚～筁谷)) */
         const val FAREDIST_CALCRULE_PATTERN_E1 = "E1"
         /** 経路情報計算ルール(中間経路(苆谷～卯塚, 卯塚～筥谷)) */
