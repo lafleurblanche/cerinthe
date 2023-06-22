@@ -8,6 +8,7 @@ import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatte
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatternC5
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatternC6
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatternC7
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnc.faredistCalcPatternC8
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD1
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD10
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD11
@@ -34,6 +35,8 @@ import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatte
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD30
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD31
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD32
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD33
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD34
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD4
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD5
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd.faredistCalcPatternD6
@@ -90,6 +93,8 @@ import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatte
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE52
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE53
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE54
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE55
+import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE56
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE6
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE7
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptne.faredistCalcPatternE8
@@ -125,6 +130,7 @@ fun calcDist(calcPattern: String, fromDist: Double, toDist: Double): Pair<Double
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_C5 -> faredistCalcPatternC5(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_C6 -> faredistCalcPatternC6(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_C7 -> faredistCalcPatternC7(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_C8 -> faredistCalcPatternC8(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_D1 -> faredistCalcPatternD1(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_D2 -> faredistCalcPatternD2(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_D3 -> faredistCalcPatternD3(fromDist, toDist)
@@ -157,6 +163,8 @@ fun calcDist(calcPattern: String, fromDist: Double, toDist: Double): Pair<Double
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_D30 -> faredistCalcPatternD30(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_D31 -> faredistCalcPatternD31(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_D32 -> faredistCalcPatternD32(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_D33 -> faredistCalcPatternD33(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_D34 -> faredistCalcPatternD34(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E1 -> faredistCalcPatternE1(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E2 -> faredistCalcPatternE2(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E3 -> faredistCalcPatternE3(fromDist, toDist)
@@ -211,6 +219,8 @@ fun calcDist(calcPattern: String, fromDist: Double, toDist: Double): Pair<Double
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E52 -> faredistCalcPatternE52(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E53 -> faredistCalcPatternE53(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E54 -> faredistCalcPatternE54(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E55 -> faredistCalcPatternE55(fromDist, toDist)
+        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_E56 -> faredistCalcPatternE56(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_F1 -> faredistCalcPatternF1(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_F2 -> faredistCalcPatternF2(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_F3 -> faredistCalcPatternF3(fromDist, toDist)
