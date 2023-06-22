@@ -22,6 +22,8 @@ class FareDistCalcRuleConst {
         const val FAREDIST_CALCRULE_PATTERN_C5 = "C5"
         /** 経路情報計算ルール(中間駅(筁谷)) */
         const val FAREDIST_CALCRULE_PATTERN_C6 = "C6"
+        /** 経路情報計算ルール(中間駅(筥谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_C7 = "C7"
         /** 経路情報計算ルール(中間経路(苆谷～茄谷)) */
         const val FAREDIST_CALCRULE_PATTERN_D1 = "D1"
         /** 経路情報計算ルール(中間経路(苆谷～笥谷)) */
@@ -80,6 +82,12 @@ class FareDistCalcRuleConst {
         const val FAREDIST_CALCRULE_PATTERN_D28 = "D28"
         /** 経路情報計算ルール(中間経路(筁谷～卯塚)) */
         const val FAREDIST_CALCRULE_PATTERN_D29 = "D29"
+        /** 経路情報計算ルール(中間経路(筥谷～笒谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_D30 = "D30"
+        /** 経路情報計算ルール(中間経路(筥谷～箬谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_D31 = "D31"
+        /** 経路情報計算ルール(中間経路(筥谷～卯塚)) */
+        const val FAREDIST_CALCRULE_PATTERN_D32 = "D32"
         /** 経路情報計算ルール(中間経路(苆谷～卯塚, 卯塚～筁谷)) */
         const val FAREDIST_CALCRULE_PATTERN_E1 = "E1"
         /** 経路情報計算ルール(中間経路(苆谷～卯塚, 卯塚～筥谷)) */
@@ -184,9 +192,21 @@ class FareDistCalcRuleConst {
         const val FAREDIST_CALCRULE_PATTERN_E51 = "E51"
         /** 経路情報計算ルール(中間経路(筁谷～卯塚, 卯塚～瑞堂)) */
         const val FAREDIST_CALCRULE_PATTERN_E52 = "E52"
+        /** 経路情報計算ルール(中間経路(筥谷～卯塚, 卯塚～槐谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_E53 = "E53"
+        /** 経路情報計算ルール(中間経路(筥谷～卯塚, 卯塚～瑞堂)) */
+        const val FAREDIST_CALCRULE_PATTERN_E54 = "E54"
         /** 経路情報計算ルール(中間経路(筁谷～卯塚～瑞堂～苕谷)) */
         const val FAREDIST_CALCRULE_PATTERN_F1 = "F1"
         /** 経路情報計算ルール(中間経路(筁谷～卯塚～瑞堂～扆谷)) */
         const val FAREDIST_CALCRULE_PATTERN_F2 = "F2"
+        /** 経路情報計算ルール(中間経路(筁谷～卯塚～瑞堂～珩谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_F3 = "F3"
+        /** 経路情報計算ルール(中間経路(筁谷～卯塚～瑞堂～玿谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_F4 = "F4"
+        /** 経路情報計算ルール(中間経路(筁谷～卯塚～瑞堂～珮谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_F5 = "F5"
+        /** 経路情報計算ルール(中間経路(筁谷～卯塚～瑞堂～荍谷)) */
+        const val FAREDIST_CALCRULE_PATTERN_F6 = "F6"
     }
 }
