@@ -9,12 +9,14 @@ import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import net.konohana.sakuya.cerinthe.dto.request.CerintheFXRequestData
 import net.konohana.sakuya.cerinthe.dto.response.CerintheAPIResponse
+import net.konohana.sakuya.cerinthe.utils.check.requestDataFXCheck
 
 fun Route.cerintheFXApiController() {
     route("/cerinthe/fx/api/regist-ticket") {
         post {
             val req = call.receive<CerintheFXRequestData>()
             println(req)
+            requestDataFXCheck(req)
             call.respond(
                 HttpStatusCode.OK,
                 CerintheAPIResponse(
