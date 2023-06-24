@@ -99,14 +99,93 @@ fun Application.configureRouting() {
                 )
             )
         }
+        exception<DuplicateStaCodeException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "乗車駅コードと降車駅コードが同一です。",
+                    "ERROR0010"
+                )
+            )
+        }
+        exception<StaCodeNotSetException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "乗車駅コードまたは降車駅コードが未設定です。",
+                    "ERROR0010"
+                )
+            )
+        }
+        exception<MonthNotSetException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "利用月が未設定です。",
+                    "ERROR0011"
+                )
+            )
+        }
+        exception<FXDuplicateStaNameException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "乗車駅と降車駅が同一です。",
+                    "ERROR00012"
+                )
+            )
+        }
+        exception<FXStaNameNotSetException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "乗車駅または降車駅が未設定です。",
+                    "ERROR0013"
+                )
+            )
+        }
+        exception<FXDayOfUseNotSetException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "利用日が未設定です。",
+                    "ERROR0014"
+                )
+            )
+        }
+        exception<FXMemberNotSetException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "乗車人員が未設定です。",
+                    "ERROR0015"
+                )
+            )
+        }
     }
 }
 
 class SectorKbnMismatchException : RuntimeException()
 class DuplicateStaNameException : RuntimeException()
 class StaNameNotSetException : RuntimeException()
+class DuplicateStaCodeException : RuntimeException()
+class StaCodeNotSetException : RuntimeException()
+class MonthNotSetException : RuntimeException()
 class DayOfUseNotSetException : RuntimeException()
 class MemberNotSetException : RuntimeException()
 class SectorKbnNotApplicableException : RuntimeException()
 class PassengerNotApplicableException : RuntimeException()
 class TicketTypeNotApplicableException : RuntimeException()
+
+class FXSectorKbnMismatchException : RuntimeException()
+class FXDuplicateStaNameException : RuntimeException()
+class FXStaNameNotSetException : RuntimeException()
+class FXDayOfUseNotSetException : RuntimeException()
+class FXMemberNotSetException : RuntimeException()
