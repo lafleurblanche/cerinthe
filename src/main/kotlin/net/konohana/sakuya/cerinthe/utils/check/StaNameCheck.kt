@@ -11,6 +11,9 @@ fun staNameCheck(from: String, to: String): Either<ResultError, ResultNormal> {
     return if (
         from == CheckValueConst.CHECK_VALUE_FROMSTA_DEFAULT ||
         to == CheckValueConst.CHECK_VALUE_TOSTA_DEFAULT) ResultError.StaNameNotSet.left()
+    else if (
+        from == CheckValueConst.CHECK_VALUE_STATION_UNDEFINED ||
+        to == CheckValueConst.CHECK_VALUE_STATION_UNDEFINED) ResultError.StaNameNotSet.left()
     else if ( from == to) {
         ResultError.StaNameDuplicate.left()
     }
