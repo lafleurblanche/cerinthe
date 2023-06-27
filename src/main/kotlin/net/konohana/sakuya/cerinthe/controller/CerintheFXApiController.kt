@@ -17,14 +17,16 @@ import kotlinx.serialization.json.Json
 import net.konohana.sakuya.cerinthe.dto.request.CerintheFXRequestData
 import net.konohana.sakuya.cerinthe.dto.response.CerintheAPIResponse
 import net.konohana.sakuya.cerinthe.dto.response.PhaceliaFareDistResponse
-import net.konohana.sakuya.cerinthe.utils.apiUrlArgwJudge
+import net.konohana.sakuya.cerinthe.dto.response.TiarellaApiResponse
 import net.konohana.sakuya.cerinthe.utils.calcDist
 import net.konohana.sakuya.cerinthe.utils.check.requestDataFXCheck
 import net.konohana.sakuya.cerinthe.utils.fareDistCalcRuleJudgement
+import net.konohana.sakuya.cerinthe.utils.farecalc.fareCalcUtil
 import net.konohana.sakuya.cerinthe.utils.fxApiUrlEnjuJudge
 import net.konohana.sakuya.cerinthe.utils.fxRouteCodeEnjuRWSelect
 import net.konohana.sakuya.cerinthe.utils.fxRouteInfoEnjuRWSelect
 import net.konohana.sakuya.cerinthe.utils.passengerGroupJudge
+import net.konohana.sakuya.cerinthe.utils.tiarellaUrlJudge
 
 fun Route.cerintheFXApiController() {
     route("/cerinthe/fx/api/regist-ticket") {
@@ -51,6 +53,9 @@ fun Route.cerintheFXApiController() {
             // 距離計算ルール判定
             val calcPattern = fareDistCalcRuleJudgement(routeCode)
             println(calcPattern)
+            //運賃マスタ取得URL判定
+            val tiarellaUrl = tiarellaUrlJudge(req.sectorKbn)
+            println("URL${tiarellaUrl}")
             // API呼び出し
             val client = HttpClient(CIO) {
                 install(ContentNegotiation) {
@@ -69,6 +74,23 @@ fun Route.cerintheFXApiController() {
             val dist = calcDist(calcPattern, fromDist, toDist)
             println("営業距離${dist.first}")
             println("運賃計算距離${dist.second}")
+            val fareResponse: TiarellaApiResponse =
+                client.get(tiarellaUrl + dist.second).body()
+            println("運賃:${fareResponse.fareAdult}")
+            println("運賃H:${fareResponse.fareHalf}")
+            println("運賃C:${fareResponse.fareChild}")
+            // 運賃計算処理
+            val totalFare = fareCalcUtil(
+                adultMember = req.adultMember,
+                halfMember = req.halfMember,
+                childMember = req.childMember,
+                fareAdultBase = fareResponse.fareAdult,
+                fareHalfBase = fareResponse.fareHalf,
+                fareChildBase = fareResponse.fareChild,
+                ticketType = req.ticketType,
+            )
+            // 合計運賃額を表示
+            println("合計運賃額:${totalFare}")
             call.respond(
                 HttpStatusCode.OK,
                 CerintheAPIResponse(
