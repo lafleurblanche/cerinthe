@@ -10,5 +10,7 @@ class LimoniumUrlPrefixConst {
         const val ENJU_ROUNDTRIP_ADULT = "regist/enju-req-rta"
         const val ENJU_ONEWAY_HALF = "regist/enju-req-owh"
         const val ENJU_ROUNDTRIP_HALF = "regist/enju-req-rth"
+        const val ENJU_ONEWAY_CHILD = "regist/enju-req-owc"
+        const val ENJU_ROUNDTRIP_CHILD = "regist/enju-req-rtc"
     }
 }

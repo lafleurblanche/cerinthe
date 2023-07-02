@@ -5,6 +5,7 @@ import arrow.core.left
 import arrow.core.right
 import net.konohana.sakuya.cerinthe.constant.LimoniumUrlPrefixConst
 import net.konohana.sakuya.cerinthe.constant.PassengerGroupConst.Companion.PASSENGER_GROUP_ADULT
+import net.konohana.sakuya.cerinthe.constant.PassengerGroupConst.Companion.PASSENGER_GROUP_CHILD
 import net.konohana.sakuya.cerinthe.constant.PassengerGroupConst.Companion.PASSENGER_GROUP_HALF
 import net.konohana.sakuya.cerinthe.constant.SectorKbnConst.Companion.SECTOR_KBN_AREAGW
 import net.konohana.sakuya.cerinthe.constant.SectorKbnConst.Companion.SECTOR_KBN_ENJURW
@@ -70,6 +71,7 @@ private fun enjuOnewayRegistUrlSelect(passengerGrp: String): Either<ResultError,
     val enjuRegistUrl = when(passengerGrp) {
         PASSENGER_GROUP_ADULT -> LimoniumUrlPrefixConst.ENJU_ONEWAY_ADULT.right()
         PASSENGER_GROUP_HALF -> LimoniumUrlPrefixConst.ENJU_ONEWAY_HALF.right()
+        PASSENGER_GROUP_CHILD -> LimoniumUrlPrefixConst.ENJU_ONEWAY_CHILD.right()
         else -> ResultError.PassengerNotApplicable.left()
     }
     return enjuRegistUrl
@@ -79,6 +81,7 @@ private fun enjuRoundTripRegistUrlSelect(passengerGrp: String): Either<ResultErr
     val enjuRegistUrl = when(passengerGrp) {
         PASSENGER_GROUP_ADULT -> LimoniumUrlPrefixConst.ENJU_ROUNDTRIP_ADULT.right()
         PASSENGER_GROUP_HALF -> LimoniumUrlPrefixConst.ENJU_ROUNDTRIP_HALF.right()
+        PASSENGER_GROUP_CHILD -> LimoniumUrlPrefixConst.ENJU_ROUNDTRIP_CHILD.right()
         else -> ResultError.PassengerNotApplicable.left()
     }
     return enjuRegistUrl
