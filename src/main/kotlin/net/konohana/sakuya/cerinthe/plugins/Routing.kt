@@ -169,6 +169,26 @@ fun Application.configureRouting() {
                 )
             )
         }
+        exception<InvalidDateException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "乗車月及び乗車日が不正です。",
+                    "ERROR0016"
+                )
+            )
+        }
+        exception<InvalidMemberException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "乗車人員が不正です。",
+                    "ERROR0017"
+                )
+            )
+        }
     }
 }
 
@@ -189,3 +209,5 @@ class FXDuplicateStaNameException : RuntimeException()
 class FXStaNameNotSetException : RuntimeException()
 class FXDayOfUseNotSetException : RuntimeException()
 class FXMemberNotSetException : RuntimeException()
+class InvalidDateException : RuntimeException()
+class InvalidMemberException : RuntimeException()

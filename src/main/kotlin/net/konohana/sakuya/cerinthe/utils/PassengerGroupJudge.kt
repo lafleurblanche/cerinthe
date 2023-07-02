@@ -9,6 +9,7 @@ import net.konohana.sakuya.cerinthe.constant.PassengerGroupConst.Companion.PASSE
 import net.konohana.sakuya.cerinthe.constant.PassengerGroupConst.Companion.PASSENGER_GROUP_CHILD
 import net.konohana.sakuya.cerinthe.constant.PassengerGroupConst.Companion.PASSENGER_GROUP_HALF
 import net.konohana.sakuya.cerinthe.constant.PassengerGroupConst.Companion.PASSENGER_GROUP_HALF_CHILD
+import net.konohana.sakuya.cerinthe.plugins.InvalidMemberException
 
 /**
  * ## 旅客グループ判定
@@ -23,9 +24,9 @@ fun passengerGroupJudge(
     halfMember: String,
     childMember: String
 ): String {
-    val adultMemberToInt: Int = adultMember.toInt()
-    val halfMemberToInt: Int = halfMember.toInt()
-    val childMemberToInt: Int = childMember.toInt()
+    val adultMemberToInt: Int = runCatching { adultMember.toInt() }.getOrElse { throw InvalidMemberException() }
+    val halfMemberToInt: Int = runCatching { halfMember.toInt() }.getOrElse { throw InvalidMemberException() }
+    val childMemberToInt: Int = runCatching { childMember.toInt() }.getOrElse { throw InvalidMemberException() }
     val passengerGroup = when {
         adultMemberToInt != MEMBER_NONE -> adultOnlyCheck(halfMemberToInt, childMemberToInt)
         halfMemberToInt != MEMBER_NONE -> halfOnlyCheck(adultMemberToInt, childMemberToInt)
