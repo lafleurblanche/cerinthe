@@ -20,6 +20,7 @@ import net.konohana.sakuya.cerinthe.dto.response.PhaceliaFareDistResponse
 import net.konohana.sakuya.cerinthe.dto.response.TiarellaApiResponse
 import net.konohana.sakuya.cerinthe.utils.calcDist
 import net.konohana.sakuya.cerinthe.utils.check.requestDataFXCheck
+import net.konohana.sakuya.cerinthe.utils.date.fxDateUtil
 import net.konohana.sakuya.cerinthe.utils.fareDistCalcRuleJudgement
 import net.konohana.sakuya.cerinthe.utils.farecalc.fareCalcUtil
 import net.konohana.sakuya.cerinthe.utils.fxApiUrlEnjuJudge
@@ -91,6 +92,8 @@ fun Route.cerintheFXApiController() {
             )
             // 合計運賃額を表示
             println("合計運賃額:${totalFare}")
+            val dateOfUse = fxDateUtil(req.monthOfUse, req.dayOfUse)
+            println("利用日:${dateOfUse}")
             call.respond(
                 HttpStatusCode.OK,
                 CerintheAPIResponse(
