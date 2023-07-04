@@ -165,6 +165,9 @@ class RouteDistanceEnjuRWConst {
         /** 路線距離定数(珮谷) */
         const val ROUTE_DISTANCE_ENJU_PTN_C14 =16.8
 
+        /** 路線距離定数(荍谷) */
+        const val ROUTE_DISTANCE_ENJU_PTN_C15 =20.1
+
         /** 路線距離定数(卯塚～槐谷) */
         const val ROUTE_DISTANCE_ENJU_RW17_PTN_CMN01 = 35.7
         /** 路線距離定数(卯塚～苆谷) */
@@ -201,6 +204,7 @@ class RouteDistanceEnjuRWConst {
         const val ROUTE_DISTANCE_ENJU_RW19_PTN_CMN05 = 16.8
         /** 路線距離定数(瑞堂～荍谷) */
         const val ROUTE_DISTANCE_ENJU_RW19_PTN_CMN06 = 20.1
-
+        /** 路線距離定数(瑞堂～槐谷) */
+        const val ROUTE_DISTANCE_ENJU_RW19_PTN_CMN07 = 24.7
     }
 }
