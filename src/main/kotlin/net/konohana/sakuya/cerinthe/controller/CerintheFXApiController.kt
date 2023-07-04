@@ -20,6 +20,7 @@ import net.konohana.sakuya.cerinthe.dto.response.PhaceliaFareDistResponse
 import net.konohana.sakuya.cerinthe.dto.response.TiarellaApiResponse
 import net.konohana.sakuya.cerinthe.utils.calcDist
 import net.konohana.sakuya.cerinthe.utils.check.requestDataFXCheck
+import net.konohana.sakuya.cerinthe.utils.check.staNameValidCheck
 import net.konohana.sakuya.cerinthe.utils.date.fxDateUtil
 import net.konohana.sakuya.cerinthe.utils.fareDistCalcRuleJudgement
 import net.konohana.sakuya.cerinthe.utils.farecalc.fareCalcUtil
@@ -69,6 +70,13 @@ fun Route.cerintheFXApiController() {
             // 距離情報取得APIから距離情報を取得
             val fromResponse: PhaceliaFareDistResponse = client.get(url.first).body()
             val toResponse: PhaceliaFareDistResponse = client.get(url.second).body()
+            // 乗降駅有効性判定
+            staNameValidCheck(
+                reqFromStaName = req.fromSta,
+                reqToStaName = req.toSta,
+                phaceliaFromStaName = fromResponse.staName,
+                phaceliaToStaName = toResponse.staName
+            )
             val fromDist = fromResponse.distance
             val toDist = toResponse.distance
             // 営業キロ, 運賃計算キロを算出
