@@ -189,6 +189,16 @@ fun Application.configureRouting() {
                 )
             )
         }
+        exception<InvalidStaNameException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "乗車駅または降車駅が不正です。",
+                    "ERROR0018"
+                )
+            )
+        }
     }
 }
 
@@ -211,3 +221,4 @@ class FXDayOfUseNotSetException : RuntimeException()
 class FXMemberNotSetException : RuntimeException()
 class InvalidDateException : RuntimeException()
 class InvalidMemberException : RuntimeException()
+class InvalidStaNameException : RuntimeException()
