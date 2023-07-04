@@ -174,7 +174,6 @@ import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnf.faredistCalcPatte
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnf.faredistCalcPatternF8
 import net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnf.faredistCalcPatternF9
 import net.konohana.sakuya.cerinthe.utils.calcdist.faredistCalcPatternA
-import net.konohana.sakuya.cerinthe.utils.calcdist.faredistCalcPatternB
 
 /**
  * 運賃計算パターンから、営業キロ及び運賃計算キロを算出します。
@@ -186,7 +185,6 @@ import net.konohana.sakuya.cerinthe.utils.calcdist.faredistCalcPatternB
 fun calcDist(calcPattern: String, fromDist: Double, toDist: Double): Pair<Double, Int> {
     val dist = when(calcPattern) {
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_A -> faredistCalcPatternA(fromDist, toDist)
-        FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_B -> faredistCalcPatternB(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_B1 -> faredistCalcPatternB1(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_C1 -> faredistCalcPatternC1(fromDist, toDist)
         FareDistCalcRuleConst.FAREDIST_CALCRULE_PATTERN_C2 -> faredistCalcPatternC2(fromDist, toDist)
