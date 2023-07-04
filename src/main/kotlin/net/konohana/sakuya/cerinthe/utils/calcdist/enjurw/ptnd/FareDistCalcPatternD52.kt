@@ -1,6 +1,7 @@
 package net.konohana.sakuya.cerinthe.utils.calcdist.enjurw.ptnd
 
 import net.konohana.sakuya.cerinthe.constant.RouteDistanceEnjuRWConst
+import kotlin.math.abs
 import kotlin.math.ceil
 
 /**
@@ -14,7 +15,10 @@ import kotlin.math.ceil
  * @return 営業キロ, 運賃計算キロ
  */
 fun faredistCalcPatternD52(fromDist: Double, toDist: Double): Pair<Double, Int> {
-    val dist = fromDist + RouteDistanceEnjuRWConst.ROUTE_DISTANCE_ENJU_RW19_PTN_CMN07 + toDist
+    val dist =
+        abs(fromDist - RouteDistanceEnjuRWConst.ROUTE_DISTANCE_ENJU_RW16_PTN_CMN01) +
+        RouteDistanceEnjuRWConst.ROUTE_DISTANCE_ENJU_RW19_PTN_CMN07 +
+        toDist
     val calcDist = ceil(dist * 10.0 / 10.0).toInt()
     return Pair(dist, calcDist)
 }
