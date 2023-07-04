@@ -9,8 +9,6 @@ class FareDistCalcRuleConst {
         /** 経路情報計算ルール(着駅-発駅) */
         const val FAREDIST_CALCRULE_PATTERN_A = "A"
         /** 経路情報計算ルール(発駅＋着駅) */
-        const val FAREDIST_CALCRULE_PATTERN_B = "B"
-        /** 経路情報計算ルール(発駅＋着駅) */
         const val FAREDIST_CALCRULE_PATTERN_B1 = "B1"
         /** 経路情報計算ルール(中間駅(苆谷)) */
         const val FAREDIST_CALCRULE_PATTERN_C1 = "C1"
