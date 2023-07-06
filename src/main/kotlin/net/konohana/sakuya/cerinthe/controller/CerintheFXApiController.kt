@@ -5,7 +5,12 @@ import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
+import io.ktor.client.request.post
+import io.ktor.client.request.setBody
+import io.ktor.client.statement.HttpResponse
+import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
+import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.call
 import io.ktor.server.request.receive
@@ -14,7 +19,9 @@ import io.ktor.server.routing.Route
 import io.ktor.server.routing.post
 import io.ktor.server.routing.route
 import kotlinx.serialization.json.Json
+import net.konohana.sakuya.cerinthe.constant.YarrowApiUrlConst
 import net.konohana.sakuya.cerinthe.dto.request.CerintheFXRequestData
+import net.konohana.sakuya.cerinthe.dto.request.SlackNotifySendData
 import net.konohana.sakuya.cerinthe.dto.response.CerintheAPIResponse
 import net.konohana.sakuya.cerinthe.dto.response.PhaceliaFareDistResponse
 import net.konohana.sakuya.cerinthe.dto.response.TiarellaApiResponse
@@ -102,6 +109,23 @@ fun Route.cerintheFXApiController() {
             println("合計運賃額:${totalFare}")
             val dateOfUse = fxDateUtil(req.monthOfUse, req.dayOfUse)
             println("利用日:${dateOfUse}")
+            // Slack通知送信
+            val response: HttpResponse = client.post(YarrowApiUrlConst.YARROW_APIURL_ENJURW) {
+                contentType(ContentType.Application.Json)
+                setBody(
+                    SlackNotifySendData(
+                        "dummy",
+                        req.fromSta,
+                        req.toSta,
+                        routeInfo,
+                        req.ticketType,
+                        dateOfUse,
+                        operationKilo = dist.first.toString(),
+                        fareCalcKilo = dist.second.toString(),
+                        totalFare = totalFare.toString()
+                    )
+                )
+            }
             call.respond(
                 HttpStatusCode.OK,
                 CerintheAPIResponse(
