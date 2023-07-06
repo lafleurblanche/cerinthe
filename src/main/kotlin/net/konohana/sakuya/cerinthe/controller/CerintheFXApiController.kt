@@ -7,6 +7,7 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
+import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
@@ -20,6 +21,7 @@ import io.ktor.server.routing.route
 import kotlinx.serialization.json.Json
 import net.konohana.sakuya.cerinthe.constant.YarrowApiUrlConst
 import net.konohana.sakuya.cerinthe.dto.request.CerintheFXRequestData
+import net.konohana.sakuya.cerinthe.dto.request.LimoniumRequestData
 import net.konohana.sakuya.cerinthe.dto.request.SlackNotifySendData
 import net.konohana.sakuya.cerinthe.dto.response.CerintheAPIResponse
 import net.konohana.sakuya.cerinthe.dto.response.LinariaApiResponse
@@ -32,6 +34,7 @@ import net.konohana.sakuya.cerinthe.utils.date.fxDateUtil
 import net.konohana.sakuya.cerinthe.utils.fareDistCalcRuleJudgement
 import net.konohana.sakuya.cerinthe.utils.farecalc.fareCalcUtil
 import net.konohana.sakuya.cerinthe.utils.fxApiUrlEnjuJudge
+import net.konohana.sakuya.cerinthe.utils.fxLimoniumApiUrlJudge
 import net.konohana.sakuya.cerinthe.utils.fxRouteCodeEnjuRWSelect
 import net.konohana.sakuya.cerinthe.utils.fxRouteInfoEnjuRWSelect
 import net.konohana.sakuya.cerinthe.utils.linariaFXApiUrlJudge
@@ -66,6 +69,9 @@ fun Route.cerintheFXApiController() {
             //運賃マスタ取得URL判定
             val tiarellaUrl = tiarellaUrlJudge(req.sectorKbn)
             println("URL${tiarellaUrl}")
+            // 発信情報登録URL判定
+            val limoniumApiUrl = fxLimoniumApiUrlJudge(req.sectorKbn, passengerGrp, req.ticketType)
+            println("LIMO:${limoniumApiUrl}")
             // 発信番号取得APIURL判定
             val linariaApiUrl = linariaFXApiUrlJudge(req.ticketType, passengerGrp, req.sectorKbn)
             // API呼び出し
@@ -129,6 +135,26 @@ fun Route.cerintheFXApiController() {
                         operationKilo = dist.first.toString(),
                         fareCalcKilo = dist.second.toString(),
                         totalFare = totalFare.toString()
+                    )
+                )
+            }
+            // 発信番号登録
+            val limoniumResponse: HttpResponse = client.post(limoniumApiUrl) {
+                contentType(ContentType.Application.Json)
+                setBody(
+                    LimoniumRequestData(
+                        requestNumber = linariaApiResponse.ticketNum,
+                        fromSta = req.fromSta,
+                        toSta = req.toSta,
+                        viaRoute = routeInfo,
+                        adultMember = req.adultMember,
+                        halfMember = req.halfMember,
+                        childMember = req.childMember,
+                        dateOfUse = dateOfUse,
+                        totalFare = totalFare.toString(),
+                        baseFareAdult = fareResponse.fareAdult,
+                        baseFareHalf = fareResponse.fareHalf,
+                        baseFareChild = fareResponse.fareChild
                     )
                 )
             }
