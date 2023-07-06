@@ -7,7 +7,6 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.get
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
-import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
@@ -23,6 +22,7 @@ import net.konohana.sakuya.cerinthe.constant.YarrowApiUrlConst
 import net.konohana.sakuya.cerinthe.dto.request.CerintheFXRequestData
 import net.konohana.sakuya.cerinthe.dto.request.SlackNotifySendData
 import net.konohana.sakuya.cerinthe.dto.response.CerintheAPIResponse
+import net.konohana.sakuya.cerinthe.dto.response.LinariaApiResponse
 import net.konohana.sakuya.cerinthe.dto.response.PhaceliaFareDistResponse
 import net.konohana.sakuya.cerinthe.dto.response.TiarellaApiResponse
 import net.konohana.sakuya.cerinthe.utils.calcDist
@@ -34,6 +34,7 @@ import net.konohana.sakuya.cerinthe.utils.farecalc.fareCalcUtil
 import net.konohana.sakuya.cerinthe.utils.fxApiUrlEnjuJudge
 import net.konohana.sakuya.cerinthe.utils.fxRouteCodeEnjuRWSelect
 import net.konohana.sakuya.cerinthe.utils.fxRouteInfoEnjuRWSelect
+import net.konohana.sakuya.cerinthe.utils.linariaFXApiUrlJudge
 import net.konohana.sakuya.cerinthe.utils.passengerGroupJudge
 import net.konohana.sakuya.cerinthe.utils.tiarellaUrlJudge
 
@@ -65,6 +66,8 @@ fun Route.cerintheFXApiController() {
             //運賃マスタ取得URL判定
             val tiarellaUrl = tiarellaUrlJudge(req.sectorKbn)
             println("URL${tiarellaUrl}")
+            // 発信番号取得APIURL判定
+            val linariaApiUrl = linariaFXApiUrlJudge(req.ticketType, passengerGrp, req.sectorKbn)
             // API呼び出し
             val client = HttpClient(CIO) {
                 install(ContentNegotiation) {
@@ -107,14 +110,17 @@ fun Route.cerintheFXApiController() {
             )
             // 合計運賃額を表示
             println("合計運賃額:${totalFare}")
+            // 発信番号取得
+            val linariaApiResponse: LinariaApiResponse = client.get(linariaApiUrl).body()
+            println(linariaApiResponse)
             val dateOfUse = fxDateUtil(req.monthOfUse, req.dayOfUse)
             println("利用日:${dateOfUse}")
             // Slack通知送信
-            val response: HttpResponse = client.post(YarrowApiUrlConst.YARROW_APIURL_ENJURW) {
+            client.post(YarrowApiUrlConst.YARROW_APIURL_ENJURW) {
                 contentType(ContentType.Application.Json)
                 setBody(
                     SlackNotifySendData(
-                        "dummy",
+                        linariaApiResponse.ticketNum,
                         req.fromSta,
                         req.toSta,
                         routeInfo,
@@ -131,7 +137,7 @@ fun Route.cerintheFXApiController() {
                 CerintheAPIResponse(
                     "OK",
                     "CerintheFX",
-                    "通信成功"
+                    linariaApiResponse.ticketNum
                 )
             )
         }
