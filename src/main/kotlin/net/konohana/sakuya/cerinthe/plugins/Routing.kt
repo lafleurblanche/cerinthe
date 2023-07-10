@@ -199,6 +199,16 @@ fun Application.configureRouting() {
                 )
             )
         }
+        exception<FXSectorKbnMismatchException> { call, _ ->
+            call.respond(
+                HttpStatusCode.OK,
+                CerintheAPIResponse(
+                    "BadRequest",
+                    "系統区分誤り",
+                    "ERROR0019"
+                )
+            )
+        }
     }
 }
 
