@@ -19,5 +19,7 @@ fun Application.configureHTTP() {
         allowHeader(HttpHeaders.AccessControlAllowOrigin)
         allowCredentials = true
         allowHost("localhost:3000")
+        allowHost("localhost:5173")
+        allowHost("localhost:39007")
     }
 }
